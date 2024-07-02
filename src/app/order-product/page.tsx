@@ -9,7 +9,6 @@ const OrderProduct = () => {
 			<h1>Order button</h1>
 			<button
 				onClick={() => {
-					console.log("placing order successfully")
 					router.replace("/")
 				}}
 			>
