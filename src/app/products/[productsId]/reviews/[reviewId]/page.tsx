@@ -18,6 +18,8 @@ const ReviewsDetails: React.FC<ReviewsDetailsProps> = ({params}) => {
 		throw new Error("error from random number generated")
 	}
 
+
+	
 	if (parseInt(params.reviewId) > 1000) {
 		notFound()
 	}
