@@ -52,3 +52,34 @@ export async function PATCH(
     });
   }
 }
+
+// ! delete request
+
+export async function DELETE(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const commentedId = parseInt(params.id);
+
+    if (!commentedId) {
+      return new Response(JSON.stringify({ error: "id not found" }), {
+        status: 303,
+        headers: { "Content-type": "application/json" },
+      });
+    } else {
+      const index = comments.findIndex((comment) => comment.id === commentedId);
+      comments.splice(index, 1);
+
+      return new Response(JSON.stringify({ deleted: comments[index] }), {
+        status: 204,
+        headers: { "Content-type": "application/json" },
+      });
+    }
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "not hit the delete url" }), {
+      status: 401,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+}
