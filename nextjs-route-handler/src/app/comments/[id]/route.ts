@@ -61,24 +61,30 @@ export async function DELETE(
 ) {
   try {
     const commentedId = parseInt(params.id);
+    const index = comments.findIndex((comment) => comment.id === commentedId);
 
     if (!commentedId) {
       return new Response(JSON.stringify({ error: "id not found" }), {
-        status: 303,
-        headers: { "Content-type": "application/json" },
-      });
-    } else {
-      const index = comments.findIndex((comment) => comment.id === commentedId);
-      comments.splice(index, 1);
-
-      return new Response(JSON.stringify({ deleted: comments[index] }), {
-        status: 204,
-        headers: { "Content-type": "application/json" },
+        status: 400,
+        headers: { "Content-Type": "application/json" },
       });
     }
+
+    if (index === -1) {
+      return new Response(JSON.stringify({ error: "comment not found" }), {
+        status: 404,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    const deletedComment = comments.splice(index, 1)[0];
+    return new Response(JSON.stringify({ deleted: deletedComment }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
   } catch (error) {
     return new Response(JSON.stringify({ error: "not hit the delete url" }), {
-      status: 401,
+      status: 500,
       headers: { "Content-Type": "application/json" },
     });
   }
