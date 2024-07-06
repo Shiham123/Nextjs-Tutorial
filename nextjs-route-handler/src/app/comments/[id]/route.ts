@@ -54,7 +54,6 @@ export async function PATCH(
 }
 
 // ! delete request
-
 export async function DELETE(
   request: Request,
   { params }: { params: { id: string } }
