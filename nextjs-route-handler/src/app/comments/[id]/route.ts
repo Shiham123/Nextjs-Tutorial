@@ -1,15 +1,25 @@
+import {redirect} from "next/navigation"
 import {comments} from "../data"
 
-export async function GET(request: Request, {params}: {params: {id: string}}) {
-	const comment = comments.find((comment) => comment.id === parseInt(params.id))
+export const GET = async (request: Request, {params}: {params: {id: string}}) => {
+	try {
+		const comment = comments.find((comment) => comment.id === parseInt(params.id))
 
-	if (comment) {
-		return new Response(JSON.stringify(comment), {
-			status: 200,
-			headers: {"Content-Type": "application/json"},
-		})
-	} else {
-		return new Response(JSON.stringify({error: "id not found"}), {
+		if (parseInt(params.id) > comments.length) redirect("/comments")
+
+		if (comment) {
+			return new Response(JSON.stringify(comment), {
+				status: 200,
+				headers: {"Content-Type": "application/json"},
+			})
+		} else {
+			return new Response(JSON.stringify({error: "id not found"}), {
+				headers: {"Content-Type": "application/json"},
+			})
+		}
+	} catch (error) {
+		return new Response(JSON.stringify({error: "An error occurred"}), {
+			status: 500,
 			headers: {"Content-Type": "application/json"},
 		})
 	}
