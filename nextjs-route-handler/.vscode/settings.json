@@ -1,3 +1,23 @@
 {
-	"cSpell.words": ["Parens", "tailwindcss"]
+	"cSpell.words": ["Parens", "tailwindcss"],
+	"workbench.colorCustomizations": {
+		"activityBar.activeBackground": "#35383c",
+		"activityBar.background": "#35383c",
+		"activityBar.foreground": "#e7e7e7",
+		"activityBar.inactiveForeground": "#e7e7e799",
+		"activityBarBadge.background": "#bf4076",
+		"activityBarBadge.foreground": "#e7e7e7",
+		"commandCenter.border": "#e7e7e799",
+		"sash.hoverBorder": "#35383c",
+		"statusBar.background": "#1d1f21",
+		"statusBar.foreground": "#e7e7e7",
+		"statusBarItem.hoverBackground": "#35383c",
+		"statusBarItem.remoteBackground": "#1d1f21",
+		"statusBarItem.remoteForeground": "#e7e7e7",
+		"titleBar.activeBackground": "#1d1f21",
+		"titleBar.activeForeground": "#e7e7e7",
+		"titleBar.inactiveBackground": "#1d1f2199",
+		"titleBar.inactiveForeground": "#e7e7e799"
+	},
+	"peacock.color": "#1d1f21"
 }
