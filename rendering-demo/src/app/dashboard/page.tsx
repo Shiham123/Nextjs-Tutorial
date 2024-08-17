@@ -3,6 +3,7 @@
 import React, {useState} from "react"
 
 export default function DashboardPage() {
+	console.log("dashboard client component rendering")
 	const [name, setName] = useState("")
 	return (
 		<div>
