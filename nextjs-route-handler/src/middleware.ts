@@ -1,7 +1,7 @@
 import {NextResponse, type NextRequest} from "next/server"
 
 // ! normal middleware set
-/*
+
 export function middleware(request: NextRequest) {
 	console.log("Request URL:", request.nextUrl.href)
 	console.log("Request Pathname:", request.nextUrl.pathname)
@@ -13,19 +13,18 @@ export function middleware(request: NextRequest) {
 
 	return NextResponse.next()
 }
-*/
 
 // !set cookies
 /*
-export function middleware(request: NextRequest) {
+export function middleware(request: NextRequest) { 
 	const response = NextResponse.next()
 	const themePreference = request.cookies.get("theme")
 
 	if (!themePreference) {  
 		response.cookies.set("theme", "dark")
 	}
-
-	return response
+ 
+	return response 
 } 
 */
 
